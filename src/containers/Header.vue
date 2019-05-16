@@ -1,6 +1,7 @@
 <template>
   <div class="header-wrapper">
-    <div class="header-left">
+    <div>头部</div>
+    <!-- <div class="header-left">
       <BaseIcon :type="iconType" class="icon"></BaseIcon>
       <span class="tips">{{currentMenu}}</span>
     </div>
@@ -40,7 +41,7 @@
             <div href="javascript:;" @click="handleLogout">退出登录</div>
           </a-menu-item>
         </a-menu>
-      </a-dropdown>
+      </a-dropdown> -->
     </div>
   </div>
 </template>

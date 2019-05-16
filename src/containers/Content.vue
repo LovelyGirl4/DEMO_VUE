@@ -11,7 +11,7 @@
         <span class="content-split" v-if="index!==myBread.length-1">></span>
       </span>
     </div>
-    <div class="content-in">
+    <div class="content-in" :style="{'width':contentWidth < 1080 ? 1080 : contentWidth + 'px', 'height': contentHeight + 'px'}">
       <router-view></router-view>
     </div>
   </div>
@@ -22,16 +22,35 @@
 export default {
   name: 'Content',
   data() {
-    return {};
+    return {
+      contentWidth: 0,
+      contentHeight: 0,
+    };
   },
   computed: {
     myBread() {
       return this.$route.matched;
     },
   },
-  mounted() {
+  created() {
+    this.getWindowSize();
   },
-  methods: {},
+  mounted() {
+    const that = this;
+    window.onresize = () => {
+      that.getWindowSize();
+    };
+  },
+  methods: {
+    getWindowSize() {
+      const { innerWidth, innerHeight } = window;
+      this.contentWidth = innerWidth - 280;
+      this.contentHeight = innerHeight - 112;
+    },
+    goBack() {
+      this.$router.back();
+    },
+  },
   components: {},
 };
 </script>

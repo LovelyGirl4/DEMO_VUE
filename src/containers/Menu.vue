@@ -14,14 +14,19 @@
         @click="handleClick"
         @openChange="openChange"
       >
-        <template v-for="item in menuArr">
+        <a-menu-item>
+          <router-link to="/home">
+            首页
+          </router-link>
+        </a-menu-item>
+        <!-- <template v-for="item in menuArr">
 
           <a-menu-item
             v-if="item.children.length === 0"
             :key="item.name"
           >
             <router-link :to="{path: item.path}">
-              <!-- <BaseIcon :type="item.icon" class="icon"></BaseIcon> -->
+              <BaseIcon :type="item.icon" class="icon"></BaseIcon>
               {{item.name}}
             </router-link>
           </a-menu-item>
@@ -38,7 +43,7 @@
             </template>
           </a-sub-menu>
 
-        </template>
+        </template> -->
       </a-menu>
     </div>
   </div>

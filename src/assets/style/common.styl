@@ -1,6 +1,6 @@
 input::-webkit-input-placeholder {
   color: rgba(195, 195, 195, 0.6);
-  font-size: 16px;
+  font-size: 14px;
 }
 
 input {
@@ -29,26 +29,56 @@ button:active {
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
   width: 5px;
-  height: 12px;
+  height: 5px;
 }
 
 /* 滚动槽 */
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 2 0 16px rgba(195, 195, 195, 0.6);
-  background: rgba(144, 150, 153, 0.1)
-  border-radius: 20px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
 }
 
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
-  border-radius: 20px;
-  background: rgba(220, 220, 220, 0.6);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(220, 220, 220, 0.6);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 label {
   font-size: 16px;
+}
+
+// 朴素按钮
+.is-plain {
+  height: 28px !important;
+  padding: 0 8px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 12px !important;
+  &.primary {
+    color: #2EA9E6;
+    background: rgba(234, 246, 252, 1);
+    border: 1px solid rgba(177, 222, 244, 1);
+  }
+  &.danger {
+    color: #F56462;
+    background: rgba(253, 239, 239, 1);
+    border: 1px solid rgba(251, 202, 202, 1);
+  }
+  &.success {
+    color: #32cd32;
+    background: rgba(144,238,144,0.3);
+    border: 1px solid rgba(50,205,50,0.5);
+  }
+}
+
+.org-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #F58B22;
+  cursor: pointer;
 }

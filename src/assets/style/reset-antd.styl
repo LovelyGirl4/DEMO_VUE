@@ -46,6 +46,19 @@
 .ant-table {
   font-size: 16px;
   color: #858585;
+  .ant-table-fixed-left {
+    .ant-table-thead > tr > th:last-child, .ant-table-tbody > tr > td:last-child {
+      span {
+        display: inline-block;
+        width: 120px;
+        height: 19px;
+        line-height: 19px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
 }
 
 .ant-table-fixed-header .ant-table-scroll .ant-table-header {
@@ -58,12 +71,6 @@
 
 .ant-table-thead > tr > th {
   background-color: #fff;
-  // border-bottom: none;
-  color: #909699;
-}
-
-.ant-table-tbody > tr > td {
-  color: #606466;
 }
 
 .ant-table-tbody > tr:not(:last-child) > td {
@@ -76,6 +83,7 @@
 
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
   padding: 12px 12px;
+  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -101,17 +109,14 @@ table {
 }
 
 .ant-pagination-options-quick-jumper input {
-  height: 32px;
+  height: 30px;
   width: 80px;
   border-radius: 2px;
-}
-.ant-pagination-options-size-changer .ant-select-selection--single {
-  height: 32px;  
 }
 
 // button
 .ant-btn {
-  height: 35px;
+  height: 36px;
   border-radius: 4px;
   font-size: 14px;
   .modal-btn {
@@ -128,37 +133,37 @@ table {
 }
 
 .ant-btn-info.ant-btn-default {
-  background-image: linear-gradient(to right, #0bb5d4 0%, #60dbfe 100%);
+  // background-image: linear-gradient(to right, #0bb5d4 0%, #60dbfe 100%);
   border: none;
-  color: #fff;
+  color: #2EA9E6;
   &:hover, &:focus {
-    color: #fff;
-    background-image: linear-gradient(to right, #0bb5d4 0%, #60dbfe 100%);
+    color: #40A9FF;
+    //background-image: linear-gradient(to right, #0bb5d4 0%, #60dbfe 100%);
   }
 }
 
 .ant-btn-danger.ant-btn-default {
-  background-image: linear-gradient(to right, #df074e 0%, #fe6060 100%);
+  // background-image: linear-gradient(to right, #df074e 0%, #fe6060 100%);
   border: none;
-  color: #fff;
+  color: #2EA9E6;
   &:hover, &:focus {
-    color: #fff;
-    background-image: linear-gradient(to right, #df074e 0%, #fe6060 100%);
+    color: #40A9FF;
+    //background-image: linear-gradient(to right, #df074e 0%, #fe6060 100%);
   }
 }
 
 .ant-btn-success.ant-btn-default {
-  background-image: linear-gradient(to right, #0eb052 0%, #3bd57c 100%);
+  //background-image: linear-gradient(to right, #0eb052 0%, #3bd57c 100%);
   border: none;
-  color: #fff;
+  color: #2EA9E6;
   &:hover, &:focus {
-    color: #fff;
-    background-image: linear-gradient(to right, #0eb052 0%, #3bd57c 100%);
+    color: #40A9FF;
+    //background-image: linear-gradient(to right, #0eb052 0%, #3bd57c 100%);
   }
 }
 
 .ant-radio-button-wrapper {
-  font-size: 14px;  
+  font-size: 14px;
 }
 
 .ant-radio-button-wrapper-checked {
@@ -176,11 +181,6 @@ table {
   background-color: #2EA9E6;
   color: #fff;
 }
-
-// .ant-btn-default {
-//   border: 1px solid #4BB5FF;
-//   color: #4BB5FF;
-// }
 
 // select
 .ant-select-selection--single {
@@ -258,15 +258,15 @@ table {
 }
 
 .ant-tabs .ant-tabs-large-bar .ant-tabs-tab:hover {
-  background: #2EA9E6;
+  color: #40a9ff;
   -webkit-background-clip: text;
-  color: transparent;
+  // color: transparent;
 }
 
 .ant-tabs-nav .ant-tabs-tab-active {
-  background: #2EA9E6;
+  color: #2EA9E6;
   -webkit-background-clip: text;
-  color: transparent;
+  // color: transparent;
 }
 
 .ant-tabs-ink-bar {
@@ -300,15 +300,6 @@ table {
 
 .ant-checkbox-indeterminate .ant-checkbox-inner:after {
   background-color: #2EA9E6;
-}
-
-// tooltip
-.ant-tooltip-inner {
-  min-width: 70px;
-  padding-top: 15px;
-  text-align: center;
-  background:rgba(43,43,103,0.9);
-  box-shadow:0px 2px 9px 0px rgba(30,48,99,0.32);
 }
 
 a {
