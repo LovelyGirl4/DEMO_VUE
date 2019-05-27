@@ -1,10 +1,13 @@
 <template>
-  <div id="app" v-if="showFlag">
+  <div id="app" v-if="showFlag && !showErrorPage">
     <Menu />
     <div class="right-wrap">
       <Header/>
       <Content/>
     </div>
+  </div>
+  <div id="app" v-else-if="showErrorPage">
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -37,6 +40,12 @@ export default {
     } else {
       // 调接口获取用户信息
     }
+  },
+  computed: {
+    showErrorPage() {
+      const route = this.$route.name;
+      return route === 'NotFound' || route === 'InternetServerError' || route === 'Unauthorized';
+    },
   },
   methods: {
     reload() {

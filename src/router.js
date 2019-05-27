@@ -4,6 +4,7 @@ import Router from 'vue-router';
 
 import NotFound from './views/ErrorPage/NotFound.vue';
 import InternetServerError from './views/ErrorPage/InternetServerError.vue';
+import Unauthorized from './views/ErrorPage/Unauthorized.vue';
 
 import Home from './views/Home/index.vue';
 
@@ -24,6 +25,11 @@ const router = new Router({
       path: '/404',
       name: 'NotFound',
       component: NotFound,
+    },
+    {
+      path: '/401',
+      name: 'Unauthorized',
+      component: Unauthorized,
     },
     {
       path: '/500',

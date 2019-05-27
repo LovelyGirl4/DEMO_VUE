@@ -1,8 +1,8 @@
 <!--500页面-->
 <template>
   <div class="wrapper">
-    <h2>500</h2>
-    <h1>INTERNET SERVER ERROR</h1>
+    <img src="../../assets/img/500.png"/>
+    <div style="margin: 20px 0;">连接服务器失败，请刷新页面</div>
     <a-button type="primary" @click="toHome">返回首页</a-button>
   </div>
 </template>
@@ -15,14 +15,6 @@ export default {
   },
   methods: {
     toHome() {
-      // const role = localStorage.getItem('roleType');
-      // if (role === 'ADMIN') {
-      //   this.$router.push({ path: '/configure' });
-      // } else if (role === 'WORKER') {
-      //   this.$router.push({ path: '/worksheet' });
-      // } else {
-      //   this.$router.push({ path: '/home' });
-      // }
       this.$router.push({ path: '/' });
     },
   },
@@ -32,9 +24,11 @@ export default {
 <style scoped lang="stylus">
   .wrapper{
     width: 100%;
-    margin-top: 10%;
+    min-height: 100%;
+    padding: 20px 0 80px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 </style>

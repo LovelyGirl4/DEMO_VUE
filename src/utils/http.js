@@ -1,17 +1,18 @@
 import axios from 'axios';
 import { toLogin, toInternetError } from './commonFunc';
+import config from './config';
 
 const instance = axios.create({});
 // http request 拦截器
 instance.interceptors.request.use(
-  (config) => {
+  (conf) => {
     if (localStorage.token) {
       // 判断是否存在token，如果存在的话，则每个http header都加上token
       // eslint-disable-next-line no-param-reassign
-      config.headers.token = localStorage.token;
+      conf.headers.token = localStorage.token;
       // config.headers.Authorization = `Bearer ${localStorage.token}`;
     }
-    return config;
+    return conf;
   },
   err => Promise.reject(err),
 );
@@ -20,8 +21,8 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (response) => {
     if (response.data) {
-      if (response.data.error === '401') {
-        toLogin();
+      if (response.data.error === '401' && window.location.href !== `${config.redirectHost}401`) {
+        window.location.href = `${config.redirectHost}401`;
       }
     }
     return response;
