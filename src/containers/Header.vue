@@ -1,12 +1,13 @@
 <template>
   <div class="header-wrapper">
-    <div>头部</div>
-    <!-- <div class="header-left">
-      <BaseIcon :type="iconType" class="icon"></BaseIcon>
-      <span class="tips">{{currentMenu}}</span>
+    <div class="header-left">
+      <span @click="toggleCollapsed" style="cursor: pointer;">
+        <a-icon :type="collapsed ? 'menu-unfold' : 'menu-fold'" />
+      </span>
     </div>
+
     <div class="user-info">
-      <div v-if="userInfo.multiTenant">
+      <!-- <div v-if="userInfo.multiTenant">
         <span class="user-name">你好，</span>
         <a-dropdown :trigger="['click']">
           <span class="user-name">
@@ -20,14 +21,14 @@
           </a-menu>
         </a-dropdown>
       </div>
-      <span class="user-name" v-else>你好，{{userInfo.tenantName}}</span>
+      <span class="user-name" v-else>你好，{{userInfo.tenantName}}</span> -->
 
       <a-dropdown :trigger="['click']">
         <div class="user-info">
           <div class="user-avatar">
             <div class="img"/>
           </div>
-          <span style="margin-left: 10px;" class="user-name">{{userInfo.userName}}</span>
+          <span style="margin-left: 10px;" class="user-name">xxx</span>
           <a-icon type="caret-down" style="margin-left: 10px;color: #4BB5FF"/>
         </div>
         <a-menu slot="overlay">
@@ -42,13 +43,14 @@
           </a-menu-item>
         </a-menu>
       </a-dropdown>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
 import { toLogin } from '../utils/commonFunc';
+import bus from '../utils/event';
 
 export default {
   name: 'Header',
@@ -59,7 +61,7 @@ export default {
   },
   inject: ['reload'],
   computed: {
-    ...mapGetters(['userInfo']),
+    ...mapGetters(['userInfo', 'collapsed']),
     iconType() {
       const path = this.$route.fullPath.split('/');
       return path[0] !== '' ? path[0] : path[1];
@@ -71,12 +73,16 @@ export default {
   watch: {
   },
   mounted() {
-    this.getTenants();
   },
   methods: {
-    ...mapMutations(['SET_USER_INFO']),
+    ...mapMutations(['SET_USER_INFO', 'SET_COLLAPSED']),
     handleLogout() {
       toLogin();
+    },
+    toggleCollapsed() {
+      this.SET_COLLAPSED(!this.collapsed);
+      localStorage.setItem('collapsed', this.collapsed);
+      bus.$emit('toggleCollapsed');
     },
   },
   components: {

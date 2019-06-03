@@ -13,8 +13,7 @@ module.exports = {
     proxy: {
       // 配置跨域，请求后端接口，样例
       '/api': {
-        target: process.env.NODE_ENV === 'development' ? 'http://10.54.125.247:8081' : process.env.VUE_APP_TITLE === 'test' ? 'http://10.54.125.247:8081' : 'http://172.21.246.176:8002',
-        // target: 'http://10.54.125.247:8081',
+        target: 'http://10.54.125.247:8081',
         ws: true, // 是否跨域
         changeOrigin: true,
         pathRewrite: {

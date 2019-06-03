@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import bus from '../utils/event';
 
 export default {
   name: 'Content',
@@ -28,6 +30,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(['collapsed']),
     myBread() {
       return this.$route.matched;
     },
@@ -40,12 +43,15 @@ export default {
     window.onresize = () => {
       that.getWindowSize();
     };
+    bus.$on('toggleCollapsed', () => {
+      this.getWindowSize();
+    });
   },
   methods: {
     getWindowSize() {
-      const { innerWidth, innerHeight } = window;
-      this.contentWidth = innerWidth - 280;
-      this.contentHeight = innerHeight - 112;
+      const menuWidth = this.collapsed ? 80 : 280;
+      this.contentWidth = window.innerWidth - menuWidth;
+      this.contentHeight = window.innerHeight - 112;
     },
     goBack() {
       this.$router.back();

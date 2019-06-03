@@ -40,6 +40,9 @@ export default {
     } else {
       // 调接口获取用户信息
     }
+    if (!localStorage.collapsed) {
+      localStorage.setItem('collapsed', false);
+    }
   },
   computed: {
     showErrorPage() {
